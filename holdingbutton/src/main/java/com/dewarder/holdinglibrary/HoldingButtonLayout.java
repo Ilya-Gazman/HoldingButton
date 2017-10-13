@@ -254,7 +254,7 @@ public class HoldingButtonLayout extends FrameLayout {
             mHoldingView = findViewById(mHoldingViewId);
         }
 
-        if (mHoldingView == null) {
+        if (!isInEditMode() && mHoldingView == null) {
             throw new IllegalStateException("Holding view doesn't set. Call setHoldingView before inflate");
         }
 
