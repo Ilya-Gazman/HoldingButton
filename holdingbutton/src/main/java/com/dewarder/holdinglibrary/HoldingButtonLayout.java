@@ -216,6 +216,7 @@ public class HoldingButtonLayout extends FrameLayout {
 
             case MotionEvent.ACTION_MOVE: {
                 if (mIsExpanded) {
+                    getParent().requestDisallowInterceptTouchEvent(true);
                     float circleCenterX = mHoldingCircle.getWidth() / 2;
                     float x = event.getRawX() - mDeltaX - circleCenterX;
                     float slideOffset = mDirection.getSlideOffset(x, circleCenterX, mViewLocation, getWidth(), mHoldingViewLocation, mHoldingView.getWidth(), mOffset);
