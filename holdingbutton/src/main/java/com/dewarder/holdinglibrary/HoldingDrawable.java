@@ -304,12 +304,9 @@ public class HoldingDrawable extends Drawable {
         ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f);
         animator.setDuration(DEFAULT_ANIMATION_DURATION_EXPAND);
         animator.setInterpolator(new AccelerateInterpolator());
-        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                mExpandedScaleFactor[0] = (float) valueAnimator.getAnimatedValue();
-                invalidateSelf();
-            }
+        animator.addUpdateListener(valueAnimator -> {
+            mExpandedScaleFactor[0] = (float) valueAnimator.getAnimatedValue();
+            invalidateSelf();
         });
         animator.addListener(new AnimatorListenerAdapter() {
             @Override
@@ -324,12 +321,9 @@ public class HoldingDrawable extends Drawable {
         ValueAnimator animator = ValueAnimator.ofFloat(1f, 0f);
         animator.setDuration(DEFAULT_ANIMATION_DURATION_COLLAPSE);
         animator.setInterpolator(new AccelerateInterpolator());
-        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                mExpandedScaleFactor[0] = (float) valueAnimator.getAnimatedValue();
-                invalidateSelf();
-            }
+        animator.addUpdateListener(valueAnimator -> {
+            mExpandedScaleFactor[0] = (float) valueAnimator.getAnimatedValue();
+            invalidateSelf();
         });
         animator.addListener(new AnimatorListenerAdapter() {
             @Override
@@ -344,15 +338,12 @@ public class HoldingDrawable extends Drawable {
         final int from = mIsCancel ? mDefaultColor : mCancelColor;
         final int to = mIsCancel ? mCancelColor : mDefaultColor;
         ValueAnimator animator = ValueAnimator.ofFloat(0f, 1f);
-        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator a) {
-                int color = ColorUtils.blend(from, to, (float) a.getAnimatedValue());
-                mPaint.setColor(color);
-                mSecondPaint.setColor(color);
-                mSecondPaint.setAlpha(mSecondAlpha);
-                invalidateSelf();
-            }
+        animator.addUpdateListener(a -> {
+            int color = ColorUtils.blend(from, to, (float) a.getAnimatedValue());
+            mPaint.setColor(color);
+            mSecondPaint.setColor(color);
+            mSecondPaint.setAlpha(mSecondAlpha);
+            invalidateSelf();
         });
         animator.setDuration(DEFAULT_ANIMATION_DURATION_CANCEL);
         return animator;
@@ -360,12 +351,7 @@ public class HoldingDrawable extends Drawable {
 
     private ValueAnimator createIconValueAnimator() {
         ValueAnimator animator = ValueAnimator.ofFloat(0.6f, 1f);
-        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                mIconScaleFactor[0] = (float) valueAnimator.getAnimatedValue();
-            }
-        });
+        animator.addUpdateListener(valueAnimator -> mIconScaleFactor[0] = (float) valueAnimator.getAnimatedValue());
         animator.setDuration(DEFAULT_ANIMATION_DURATION_ICON);
         return animator;
     }

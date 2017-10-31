@@ -9,6 +9,7 @@ public interface HoldingButtonTouchListener {
     /**
      * Indicates that holding view is touched.
      * Method is called before any method of `HoldingButtonLayoutListener`.
+     *
      * @return false - if expanding animation must be canceled, true - if animation must be proceeded
      */
     boolean onHoldingViewTouched();

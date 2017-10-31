@@ -1,5 +1,4 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,14 +13,14 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/activity_main_time_margin_bottom"
         android:text="00:00:00"
-        android:visibility="invisible"/>
+        android:visibility="invisible" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/activity_main_shadow_height"
         android:layout_above="@+id/input_holder"
         android:layout_gravity="bottom"
-        android:background="@drawable/background_shadow"/>
+        android:background="@drawable/background_shadow" />
 
     <com.dewarder.holdinglibrary.HoldingButtonLayout
         android:id="@+id/input_holder"
@@ -51,12 +50,12 @@
                 android:layout_marginEnd="@dimen/activity_main_slide_to_cancel_icon_margin_right"
                 android:layout_marginRight="@dimen/activity_main_slide_to_cancel_icon_margin_right"
                 android:scaleType="center"
-                android:src="@drawable/ic_keyboard_arrow_left_black_24dp"/>
+                android:src="@drawable/ic_keyboard_arrow_left_black_24dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/label_slide_to_cancel"/>
+                android:text="@string/label_slide_to_cancel" />
 
         </LinearLayout>
 
@@ -79,14 +78,14 @@
                 android:hint="@string/hint_type_your_message"
                 android:paddingBottom="@dimen/activity_main_input_padding_vertical"
                 android:paddingTop="@dimen/activity_main_input_padding_vertical"
-                android:textSize="@dimen/activity_main_input_text_size"/>
+                android:textSize="@dimen/activity_main_input_text_size" />
 
             <ImageView
                 android:id="@+id/start_record"
                 android:layout_width="@dimen/activity_main_start_record_width"
                 android:layout_height="match_parent"
                 android:scaleType="center"
-                android:src="@drawable/ic_mic_black_24dp"/>
+                android:src="@drawable/ic_mic_black_24dp" />
 
         </LinearLayout>
 
