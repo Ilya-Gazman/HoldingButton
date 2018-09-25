@@ -40,6 +40,7 @@ import android.widget.FrameLayout;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("unused")
 public class HoldingButtonLayout extends FrameLayout {
 
     private int mHoldingViewId = -1;
@@ -187,6 +188,13 @@ public class HoldingButtonLayout extends FrameLayout {
     }
 
     @Override
+    public boolean performClick() {
+        super.performClick();
+        submit();
+        return true;
+    }
+
+    @Override
     public boolean onTouchEvent(MotionEvent event) {
         final int action = event.getActionMasked();
 
@@ -233,7 +241,7 @@ public class HoldingButtonLayout extends FrameLayout {
 
             case MotionEvent.ACTION_UP: {
                 if (mIsExpanded) {
-                    submit();
+                    performClick();
                     return true;
                 }
             }
